@@ -13,11 +13,15 @@
 
 ### Competition rules
 - the result of competition is simple a sum of race points for each competitor
-- there can be specified that the _n_ worst races can be discarded
+- there can be specified that the _n_ worst races can be discarded (leave out, not used)
 - there are special rules how to handle ties (when you have competitors on the same place in competition results)
 
-## Task1
-Calculate rank and points for a signle race (for all three data1/race1.csv, data1/race2.csv, data1/race3.csv)
+## Task
+Calculate ranks and points for all three races (data can be found in these files: `data1/race1.csv`, `data1/race2.csv`, `data1/race3.csv`).
+
+The program should load these csv files and prints out (output to console) the table that includes: Competitor, Rank, Points. This table should have 15 rows, that means one row per competitor. 
+
+For discards _n=1_ (the worst race shouldn't be taken into account). Ties doesn't need to be handled.
 
 ## Notes
 The application should be a simple console application no UI.
