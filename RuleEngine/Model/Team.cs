@@ -8,7 +8,7 @@ namespace RuleEngine.Model
     {
         public string Name { get; set; }
         public int Position { get; set; }
-        public int Points { get; set; }
+        public double Points { get; set; }
         public int Rank { get; set; }
         public List<int> RaceResults = new List<int>();
 
