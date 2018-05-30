@@ -8,10 +8,9 @@ namespace RuleEngine.Model
 {
     class FileLoader
     {
-        //pridat do parametru string path, zatim jde o testovaci fazi
-        public static Race GetRace()
+        public static Race GetRace(String path)
         {
-            IEnumerable<string> text = File.ReadLines(Directory.GetCurrentDirectory() + "data1/race1.csv");
+            IEnumerable<string> text = File.ReadLines(path);
             Race race = new Race();
             int currentLine = 1;
             foreach (string l in text)
@@ -24,6 +23,7 @@ namespace RuleEngine.Model
                     team.Position = int.Parse(line[1]);
                     race.Teams.Add(team);
                 }
+                currentLine++;
             }
             return race;
         }

@@ -11,23 +11,24 @@ namespace RuleEngine.Model
         {
             int rank = 1;
             double buffer = 0;
-            teams.OrderBy(x => x.Position);
-            var duplicated = teams.GroupBy(g => g.Position).Where(x => x.Count() > 0).ToDictionary(x => x.Key, y => y.Count());
+            var duplicated = teams.GroupBy(g => g.Position)
+                .Where(x => x.Count() > 0)
+                .ToDictionary(x => x.Key, y => y.Count())
+                .OrderBy(x => x.Key);
+            teams = teams.OrderBy(x => x.Position).ToList();
             foreach (KeyValuePair<int, int> i in duplicated)
             {
                 if (!(i.Value > 1))
                 {
-                    teams[rank - 1].Points = rank;
-                    //output.Add(rank);
+                    teams[rank - 1].Points += rank;
                     rank++;
                 }
                 else
                 {
                     buffer = (double)(rank * i.Value + i.Value - 1) / i.Value;
-                    for (int z = i.Value; z > 0; z--)
+                    for (int z = i.Value - 1; z >= 0; z--)
                     {
-                        teams[rank - z].Points(buffer);
-                        //output.Add(buffer);
+                        teams[rank - z].Points += buffer;
                     }
                     rank += i.Value;
                 }
