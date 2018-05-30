@@ -25,7 +25,13 @@ namespace RuleEngine
                     
                 }
                 Console.WriteLine("-----------------------------------------------------------------------------");
-            }/*
+            }
+            List<Team> FinallResults = CompetitionResults.Results(races);
+            foreach(Team t in FinallResults)
+            {
+                Console.WriteLine("{0} ended up with {1} points", t.Name, t.Points);
+            }
+            /*
             foreach (Team t in races[0].Teams.OrderBy(x => x.Position))
             {
                 Console.WriteLine(t.Name);
