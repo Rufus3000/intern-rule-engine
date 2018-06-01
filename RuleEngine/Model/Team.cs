@@ -10,7 +10,7 @@ namespace RuleEngine.Model
         public int Position { get; set; }
         public double Points { get; set; }
         public int Rank { get; set; }
-        public List<int> RaceResults = new List<int>();
+        public bool Discarded = false;
 
     }
 }
